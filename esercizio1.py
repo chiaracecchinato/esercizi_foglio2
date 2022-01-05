@@ -29,28 +29,26 @@ class Automa:
         return 1
 
 def esegui(automa, capo):
-    if capo==biancheria:
-        ok=automa.intimo()
-    elif capo==calzini:
-        ok=automa.calze()
-    elif capo==maglia:
-        ok=automa.magl()
-    elif capo==pantalone:
-        ok=automa.panta()
+    if capo=='biancheria':
+        return automa.intimo()
+    if capo=='calzini':
+        return automa.calze()
+    if capo=='maglia':
+        return automa.magl()
+    if capo=='pantalone':
+        return automa.panta()
     else:
-        ok=0
-
-    return ok    
+        return 0    
 
 automa=Automa()
-capi_vestiario=[biancheria, calzini, maglia, pantalone, calzatura]
+capi_vestiario=['biancheria', 'calzini', 'maglia', 'pantalone', 'calzatura']
 vestito=True
 
-while(vestito){
-    capo=random.choice(lista)
-    if(pantaloni==True and biancheria==None):
+while(vestito):
+    capo=random.choice(capi_vestiario)
+    if(automa.panta==1 and automa.biancheria==None):
         print("non può indossare i pantaloni prima della biancheria")
-    elif(calzatura==True and calzini==None):
+    elif(automa.panta==1 and automa.calze==None):
         print("non può indossare le scarpe prima dei pantaloni")
     else:
         print("può indossare gli abiti")
@@ -61,5 +59,3 @@ while(vestito){
         print("automa vestito adeguatamente")
     else:
         raise print("Errore! E' stato resitutito 0 in maniera casuale")  
-}
-  
