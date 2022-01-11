@@ -1,4 +1,8 @@
 class Calcolatrice:
+    def __init__(self, a, b):
+        self.a=a
+        self.b=b 
+
     def addizione(a, b):
         if (isinstance(a, int) & isinstance(b, int)) | (isinstance(a, float) & (isinstance(b, float))): 
             somma=a+b
@@ -62,10 +66,10 @@ class Calcolatrice:
     def conversione(a, b):
         if (isinstance(a, int) & isinstance(b, int)) | (isinstance(a, float) & (isinstance(b, float))):
             if b==2:
-                while n>0:
-                    quoz=a//2
+                while a>0:
+                    quoz=a//2 #//arrotonda la divisione al numero intero più vicino
                     resto=a%2
-                    prod*=rest0
+                    prod*=resto
                     somma+=resto
                     a=quoz
                 conv=prod-somma
@@ -75,5 +79,34 @@ class Calcolatrice:
         else:
             print("I valori non sono dello stesso tipo")
 
-class Test:
+
+import unittest
+
+class Test(unittest.TestCase):
+
+    calcolo = Calcolatrice(a=4, b=2)
+
+    def test_somma(self):
+        self.assertEqual(calcolo.addizione, 6)
+
+    def test_sottrazione(self):
+        self.assertEqual(calcolo.sottrazione, 2)
+
+    def test_moltiplicazione(self):
+        self.assertEqual(calcolo.moltiplicazione, 8)
+
+    def test_divisione(self):
+        self.assertEqual(calcolo.divisione, 2)
+
+    def test_potenza(self):
+        self.assertEqual(calcolo.potenza, 16)
+
+    def test_modulo(self):
+        self.assertEqual(calcolo.modulo, 0)
+
+    def test_radice(self):
+        self.assertEqual(calcolo.radice, 2)
+
+    def test_conversione(self):
+        self.assertEqual(calcolo.conversione, 0)
     
